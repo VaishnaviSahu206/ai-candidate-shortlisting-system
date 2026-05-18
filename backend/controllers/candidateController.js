@@ -78,3 +78,26 @@ exports.aiShortlist = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+exports.deleteCandidate = async (
+    req,
+    res
+) => {
+
+    try {
+
+        await Candidate.findByIdAndDelete(
+            req.params.id
+        );
+
+        res.json({
+            message:
+            "Candidate deleted"
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+            error: error.message
+        });
+    }
+};

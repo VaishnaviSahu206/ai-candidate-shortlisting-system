@@ -1,3 +1,4 @@
+import api from "../api";
 function MatchResults({
     results,
     search
@@ -10,6 +11,21 @@ const filteredResults =
                 .includes(search.toLowerCase())
         )
     );
+    const handleDelete = async (id) => {
+
+    try {
+
+        await api.delete(
+            `/candidates/${id}`
+        );
+
+        window.location.reload();
+
+    } catch (error) {
+
+        console.log(error);
+    }
+};
     return (
 
         <div>
@@ -70,6 +86,14 @@ const filteredResults =
                                     candidate.matchedSkills.join(", ")
                                 }
                             </p>
+                            <button
+    onClick={() =>
+        handleDelete(candidate._id)
+    }
+    className="mt-4 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700"
+>
+    Delete
+</button>
 
                         </div>
                     ))

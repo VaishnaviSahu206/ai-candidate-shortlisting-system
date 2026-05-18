@@ -6,7 +6,8 @@ const {
     addCandidate,
     getCandidates,
     matchCandidates,
-    aiShortlist
+    aiShortlist,
+    deleteCandidate
 } = require("../controllers/candidateController");
 
 router.post("/candidates", addCandidate);
