@@ -17,5 +17,9 @@ router.get("/candidates", getCandidates);
 router.post("/match", matchCandidates);
 
 router.post("/ai/shortlist", aiShortlist);
+router.delete(
+    "/candidates/:id",
+    deleteCandidate
+);
 
 module.exports = router;
