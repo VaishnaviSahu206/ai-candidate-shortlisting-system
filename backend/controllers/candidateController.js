@@ -41,6 +41,7 @@ exports.matchCandidates = async (req, res) => {
                 (skillScore * 0.8) + (experienceScore * 0.2);
 
             return {
+                _id: candidate._id,
                 name: candidate.name,
                 email: candidate.email,
                 skills: candidate.skills,
